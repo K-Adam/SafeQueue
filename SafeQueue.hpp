@@ -1,6 +1,6 @@
 
 // Created by Adam Kecskes
-// https://github.com/deadmanswitch/SafeQueue
+// https://github.com/K-Adam/SafeQueue
 
 #pragma once
 
@@ -58,7 +58,7 @@ public:
 	bool Consume(T& item) {
 
 		std::lock_guard<std::mutex> lock(mtx);
-		
+
 		if (q.empty()) {
 			return false;
 		}
