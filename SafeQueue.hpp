@@ -38,7 +38,7 @@ public:
 		Finish();
 	}
 
-	void Provide(T&& item) {
+	void Produce(T&& item) {
 
 		std::lock_guard<std::mutex> lock(mtx);
 
@@ -55,6 +55,7 @@ public:
 
 	}
 
+	[[nodiscard]]
 	bool Consume(T& item) {
 
 		std::lock_guard<std::mutex> lock(mtx);
@@ -70,6 +71,7 @@ public:
 
 	}
 
+	[[nodiscard]]
 	bool ConsumeSync(T& item) {
 
 		std::unique_lock<std::mutex> lock(mtx);
