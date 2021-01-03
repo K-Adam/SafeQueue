@@ -42,7 +42,7 @@ public:
 
 		std::lock_guard<std::mutex> lock(mtx);
 
-		q.push(item);
+		q.push(std::move(item));
 		cv.notify_one();
 
 	}
